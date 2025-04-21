@@ -1,55 +1,90 @@
-# 🏋️‍♀️ Análisis de Mercado de Halterofilia - Lift & Lead
+# Análisis de mercado para la apertura de centros especializados de Halterofilia - *Lift & Lead*
 
-## Descripción del Proyecto
+## 📊 Descripción del proyecto
+Este repositorio contiene un análisis de datos de los Campeonatos Europeos de Halterofilia para validar la hipótesis de que la popularidad del CrossFit está impulsando el interés por la halterofilia en Europa. El análisis apoya la estrategia de negocio de ***Lift & Lead***, una startup que busca abrir centros de entrenamiento especializados en halterofilia.
 
-Este repositorio contiene un análisis exhaustivo del mercado europeo de halterofilia basado en datos de campeonatos europeos desde 2019 hasta 2024. El proyecto está diseñado para validar la hipótesis de que la popularidad del CrossFit está impulsando el interés por la halterofilia en Europa.
+## 🔍 Estructura del análisis
+El análisis se ha realizado en dos fases:
 
-## 🎯 Objetivos
+### Fase 1
+Análisis de datos de los campeonatos europeos de halterofilia de 2019 y 2020, incluyendo:
+- Limpieza y estructuración de datos
+- Creación de un dataframe unificado
+- Extracción de información relevante sobre atletas, países, categorías y resultados
 
-- Analizar los resultados de los campeonatos europeos de halterofilia (2019-2024)
-- Identificar tendencias y patrones en el rendimiento por país y género
-- Proporcionar insights para la toma de decisiones sobre apertura de centros especializados
+### Fase 2
+Ampliación del análisis incluyendo datos de 2019 a 2024, mediante:
+- Web scraping de datos adicionales de Wikipedia (2021-2024)
+- Integración con el análisis previo
+- Análisis comparativo entre periodos
 
-## 📊 Datos
+## 🛠️ Tecnologías utilizadas
 
-El análisis se realiza en dos fases:
+### Procesamiento y análisis de datos
+- **pandas**: Manipulación y análisis de dataframes
+- **numpy**: Operaciones numéricas y manejo de arrays
 
-### Fase 1: Análisis de datos de 2019-2020
-- Fuentes: 
-  - [Campeonato Europeo 2019](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2019)
-  - [Campeonato Europeo 2020](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2020)
+### Visualización de datos
+- **matplotlib**: Creación de gráficos estáticos
+- **seaborn**: Visualizaciones estadísticas avanzadas
+- **plotly.express**: Gráficos interactivos
 
-### Fase 2: Web Scraping 2021-2024
-- Extracción de datos mediante web scraping de:
-  - [Campeonato Europeo 2021](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2021)
-  - [Campeonato Europeo 2022](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2022)
-  - [Campeonato Europeo 2023](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2023)
-  - [Campeonato Europeo 2024](https://es.wikipedia.org/wiki/Campeonato_Europeo_de_Halterofilia_de_2024)
+### Web scraping y extracción de datos
 
-## 🔍 Preguntas Principales
+- **requests**: Realización de solicitudes HTTP.
+- **BeautifulSoup**: Parsing y extracción de datos HTML estructurados.
 
-1. ¿Cuántas medallas de cada tipo (oro, plata y bronce) ha ganado cada país en la competición?
-2. ¿Qué país ha logrado la mayor equidad en términos de éxito entre sus atletas femeninos y masculinos?
-3. ¿En qué país es menor la diferencia entre el promedio de puntos totales conseguidos por atletas femeninos y masculinos?
+### Análisis exploratorio
+- **missingno**: Visualización de datos faltantes
 
-## 🛠️ Metodología
+### Procesamiento de texto y coincidencia de cadenas
+- **re**: Expresiones regulares para procesamiento de texto
+- **fuzzywuzzy**: Coincidencia de cadenas mediante lógica difusa
 
-1. **Obtención de datos**: Carga de datos disponibles y web scraping
-2. **Exploración inicial**: Análisis descriptivo y estadístico
-3. **Transformación**: Limpieza y estructuración de los datos
-4. **Análisis**: Respuesta a preguntas clave y visualización
-5. **Interpretación**: Conclusiones y recomendaciones para negocio
+## 📋 Metodología
+1. **Preparación de datos**:
+   - Concatenación de datasets de diferentes años
+   - Extracción de información estructurada de columnas con datos combinados
+   - Limpieza de caracteres extraños
+   - Creación de nuevas columnas: Medalla, Atleta, Fecha, Nombre, Apellido, País, Resultados, etc.
+   - Conversión de tipos de datos para análisis
 
-## 📈 Resultados Destacados
+2. **Análisis exploratorio (EDA)**:
+   - Detección de outliers
+   - Visualización mediante boxplots y gráficos de barras
+   - Análisis de distribución de medallas por país y género
+   - Evaluación de equidad en resultados por género
 
-*(Esta sección se actualizará con los hallazgos clave del análisis)*
+3. **Web Scraping y extracción de datos**:
+    - Identificación y selección de URLs de Wikipedia con resultados oficiales de campeonatos (2021-2024)
+   - Utilización de requests para obtener el contenido HTML completo de cada página
+   - Implementación de BeautifulSoup para parsear y navegar por la estructura DOM
+   - Localización de tablas de resultados mediante selectores CSS específicos y atributos de clase
+   - Filtrado de tablas relevantes según encabezados y contenido para distinguir entre diferentes categorías y eventos
+   - Transformación de datos tabulares HTML a estructuras de pandas mediante pd.read_html() combinado con procesamiento     personalizado
+    - Homogeneización de formatos de datos entre diferentes años para mantener consistencia con el dataset original
+    - Tratamiento específico para variaciones en nomenclatura de países.
+  
+## 🏆 Principales hallazgos
+- Distribución de medallas por país (oro, plata y bronce)
+- Identificación de países con mayor equidad en términos de éxito entre atletas femeninos y masculinos:
+  - Los países más equitativos: Azerbaiyán, Alemania y Moldavia
+  - Los países menos equitativos: Reino Unido, Suecia, Albania, Polonia, España, Bélgica, Austria, Georgia
+- Países con menor diferencia entre puntuaciones promedio por género
+- Cambios significativos en la distribución de medallas a lo largo del tiempo, incluyendo el impacto de eventos como la exclusión de Rusia y Bielorrusia a partir de 2022
 
-## 🚀 Próximos Pasos
+## ⚠️ Consideraciones especiales
+- El campeonato de 2020 se celebró en 2021 debido a la pandemia de COVID-19
+- En 2022, los atletas de Rusia y Bielorrusia fueron excluidos debido a la invasión rusa de Ucrania
+- En 2024, los deportistas bielorrusos participaron bajo la denominación "Atletas Independientes Neutrales"
 
-- Incorporar análisis predictivo para tendencias futuras
-- Correlacionar datos con métricas de interés en CrossFit
-- Ampliar el análisis a competiciones mundiales
+## 💡 Conclusiones relevantes para el negocio
+El análisis proporciona insights valiosos para ***Lift & Lead*** sobre:
+- Mercados potenciales basados en el éxito y popularidad por países
+- Tendencias en la participación y rendimiento por género
+- Evolución del interés por la halterofilia en diferentes regiones europeas
+- Cambios en el panorama competitivo que podrían indicar oportunidades de mercado
 
 ---
 
-Desarrollado para Lift & Lead por [Barbara Gamarra](https://github.com/BarbaraGamarra)
+*Este repositorio contiene todo el código y análisis detallado que respalda estas conclusiones*
