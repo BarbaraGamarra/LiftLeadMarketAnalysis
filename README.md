@@ -70,7 +70,7 @@ Ampliación del análisis incluyendo datos de 2019 a 2024, mediante:
 - Identificación de países con mayor equidad en términos de éxito entre atletas femeninos y masculinos:
   - Los países más equitativos: Azerbaiyán, Alemania y Moldavia
   - Los países menos equitativos: Reino Unido, Suecia, Albania, Polonia, España, Bélgica, Austria, Georgia
-- Países con menor diferencia entre puntuaciones promedio por género
+- Países con menor diferencia entre puntuaciones promedio por género: Rumanía
 - Cambios significativos en la distribución de medallas a lo largo del tiempo, incluyendo el impacto de eventos como la exclusión de Rusia y Bielorrusia a partir de 2022
 
 ## ⚠️ Consideraciones especiales
